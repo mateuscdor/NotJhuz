@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, participants, usedPrefix, command }) => {
       ])
   )).filter(v => v[1]).map(v => v[0] + '@c.us')
   let response = await conn.groupAdd(m.chat, users)
-  if (response[users] == 408) throw `*El numero se salio recientemente*\n*La unica manera de añadirlo es por medio del enlace del grupo. Usa ${usedPrefix}link para obtener el enlace*`
+  if (response[users] == 408) throw `*El numero salió recientemente*\n*La unica manera de añadirlo es por medio del enlace del grupo. Usa ${usedPrefix}link para obtener el enlace*`
   let pp = await conn.getProfilePicture(m.chat).catch(_ => false)
   let jpegThumbnail = pp ? await (await fetch(pp)).buffer() : false
   for (let user of response.participants.filter(user => Object.values(user)[0].code == 403)) {
@@ -26,7 +26,7 @@ let handler = async (m, { conn, text, participants, usedPrefix, command }) => {
         mentionedJid: conn.parseMention(teks)
       }
     })
-    await conn.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, false, '¡Hola!, me presento, soy 🐈 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨 🐈, y soy un Bot para WhatsApp, una persona del grupo utilizo el comando para añadirte al grupo, pero no pude agregarte, asi que te mando la invitacion para que te agregues, te esperamos!!', jpegThumbnail ? {
+    await conn.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, false, '¡Hola!, me presento, soy _NotJhuz_, y soy un Bot para WhatsApp, una persona del grupo utilizo el comando para añadirte al grupo, pero no pude agregarte, asi que te mando la invitación para que puedas ingresar, te esperamos!!', jpegThumbnail ? {
       jpegThumbnail
     } : {})
   }
