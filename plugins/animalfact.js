@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 *Ejemplo de uso:*
 *${usedPrefix}${command} dog*\n
-*┌〔 🐈 OPCIONES 🐈 〕*
+*┌〔 🐱‍👤 OPCIONES 🐱‍👤 〕*
 *├* _dog_
 *├* _cat_
 *├* _panda_
@@ -25,7 +25,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   );
   if (!res.ok) throw `${res.status} ${res.statusText}`;
   let json = await res.json();
-  if (json.image) await conn.sendFile(m.chat, json.image, "", `${json.fact}\n\n~The Shadow Brokers - Bot`, m);
+  if (json.image) await conn.sendFile(m.chat, json.image, "", `${json.fact}\n\n~NotJhuz`, m);
   else throw json;
 };
 handler.help = ["animal"].map((v) => v + " <hewan>");
