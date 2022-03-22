@@ -36,7 +36,7 @@ async function handler(m, { command }) {
                         return who === this.a ? this.b : who === this.b ? this.a : ''
                     },
                 }
-                m.reply('En espera de que un usuario use el comando #start para poder vincularlos.. esto puede demorar si desea salir con #leave')
+                m.reply('En espera de un usuario que use el comando #start para poder vincularlos.. esto puede demorar. Si desea salir, use #leave')
             }
             break
         }
