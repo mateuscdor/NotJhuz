@@ -2,7 +2,7 @@ const TicTacToe = require("../lib/tictactoe")
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     conn.game = conn.game ? conn.game : {}
-    if (Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw '😺 *Aún estas en una sala de juego* 😺\n\n*👉 Para dejar de jugar escribe "salir" (sin prefijo) respondiendo al mensaje del inicio que envio el Bot*\n\n*También puedes eliminar la sala escribiendo #delttt _nombre de la sala_*'
+    if (Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw ' *Aún estas en una sala de juego* \n\n*👉 Para dejar de jugar escribe "salir" (sin prefijo) respondiendo al mensaje del inicio que envio el Bot*\n\n*También puedes eliminar la sala escribiendo #delttt _nombre de la sala_*'
     let room = Object.values(conn.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
     // m.reply('[WIP Feature]')
     if (room) {
